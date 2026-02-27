@@ -1,6 +1,6 @@
-# Auto Mail Website
+# PiA Website
 
-A simple, mobile-responsive static website for Auto Mail with landing page, privacy policy, and terms & conditions.
+A simple, mobile-responsive static website for PiA with landing page, privacy policy, and terms & conditions.
 
 ## Tech Stack
 
