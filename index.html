@@ -3,22 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PiA: your personal assistant</title>
+  <title>Pia: your personal assistant</title>
   <link rel="icon" type="image/png" href="/icon.png">
   <link rel="apple-touch-icon" href="/icon.png">
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body class="bg-white min-h-screen flex flex-col">
-  <!-- Main Content -->
-  <main class="flex-1 flex items-center justify-center px-4">
-    <div class="text-center">
-      <img src="/icon.png" alt="PiA" class="w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-8 shadow-lg" style="border-radius: 22.37%;">
+  <!-- Hero -->
+  <section class="flex-1 flex items-center justify-center px-4 py-16 sm:py-24">
+    <div class="text-center max-w-2xl">
+      <img src="/icon.png" alt="Pia" class="w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-8 shadow-lg" style="border-radius: 22.37%;">
       <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900">
-        PiA
+        Pia
       </h1>
       <p class="text-xl sm:text-2xl text-gray-600 mt-4">your personal assistant</p>
+      <p class="text-base sm:text-lg text-gray-500 mt-6 max-w-lg mx-auto">
+        She connects to your Gmail, Calendar, and Drive — and works 24/7 while you sleep. Drafts replies in your voice, tracks your schedule, files your documents. You just review and send.
+      </p>
+      <!-- TODO: replace # with real App Store URL -->
+      <a href="#" class="inline-block mt-8">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" class="h-14 mx-auto">
+      </a>
     </div>
-  </main>
+  </section>
+
+  <!-- Screenshot Gallery -->
+  <section class="px-4 py-16">
+    <div class="screenshot-gallery mx-auto">
+      <div class="screenshot-item">
+        <img src="/screenshots/iphone-pia-01.png" alt="Pia handles your emails" class="screenshot-img">
+      </div>
+      <div class="screenshot-item">
+        <img src="/screenshots/iphone-pia-02.png" alt="Morning brief" class="screenshot-img">
+      </div>
+      <div class="screenshot-item">
+        <img src="/screenshots/iphone-pia-03.png" alt="W-9 handling" class="screenshot-img">
+      </div>
+      <div class="screenshot-item">
+        <img src="/screenshots/iphone-pia-04.png" alt="Calendar awareness" class="screenshot-img">
+      </div>
+      <div class="screenshot-item">
+        <img src="/screenshots/iphone-pia-05.png" alt="Invoice forwarding" class="screenshot-img">
+      </div>
+      <div class="screenshot-item">
+        <img src="/screenshots/iphone-pia-06.png" alt="Voice-matched drafts" class="screenshot-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="px-4 py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div>
+          <div class="text-3xl mb-3">&#9993;</div>
+          <h3 class="text-lg font-semibold text-gray-900">Drafts in Your Voice</h3>
+          <p class="text-sm text-gray-600 mt-2">Learned from all your sent emails. Pia matches your tone, your sign-off, your emoji style. Not a robot's voice — yours.</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">&#128197;</div>
+          <h3 class="text-lg font-semibold text-gray-900">Gmail, Calendar, Files</h3>
+          <p class="text-sm text-gray-600 mt-2">She handles all three. Finds attachments, checks your availability, forwards invoices, reschedules meetings — hands-free.</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">&#128274;</div>
+          <h3 class="text-lg font-semibold text-gray-900">Secure. Google Approved.</h3>
+          <p class="text-sm text-gray-600 mt-2">CASA Tier 2 certified. Your data never leaves Google. Nothing sent without your OK. Revoke access anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="px-4 py-16">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">How it works</h2>
+      <div class="mt-10 space-y-8 text-left">
+        <div class="flex gap-4 items-start">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-bold">1</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Connect your Google account</h3>
+            <p class="text-sm text-gray-600 mt-1">Pia links to Gmail, Calendar, and Drive and starts working immediately.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-bold">2</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">She handles everything</h3>
+            <p class="text-sm text-gray-600 mt-1">Promos archived, receipts filed, meetings tracked, drafts written — while you sleep.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-bold">3</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Give her instructions</h3>
+            <p class="text-sm text-gray-600 mt-1">One-time tasks or standing rules that last forever. "Forward all invoices to my accountant." Done.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-bold">4</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">You review and send</h3>
+            <p class="text-sm text-gray-600 mt-1">Every draft is in your voice. One tap to send. Nothing goes out without your OK.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="py-6 px-4">
@@ -29,7 +120,7 @@
         <a href="/support.html" class="hover:text-gray-900 transition-colors">Support</a>
       </div>
       <div class="mt-4 text-sm text-gray-500">
-        <p>&copy; 2026 PiA. All rights reserved.</p>
+        <p>&copy; 2026 Pia. All rights reserved.</p>
       </div>
     </div>
   </footer>

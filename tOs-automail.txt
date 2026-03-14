@@ -4,9 +4,9 @@
 
 We are Mobile Operator, Inc. ("**Company**," "**we**," "**us**," "**our**"), a company registered in California, United States at 2261 Market St, San Francisco, CA, US, 94114, San Francisco, CA 94114.
 
-We operate the website mobileoperator.com (the "**Site**"), the mobile application PiA (the "**App**"), as well as any other related products and services that refer or link to these legal terms (the "**Legal Terms**") (collectively, the "**Services**").
+We operate the website mobileoperator.com (the "**Site**"), the mobile application Pia (the "**App**"), as well as any other related products and services that refer or link to these legal terms (the "**Legal Terms**") (collectively, the "**Services**").
 
-PiA is an iOS email client that helps you manage your email communications with features including automated email drafting, email organization, and AI-assisted email composition
+Pia is an iOS email client that helps you manage your email communications with features including automated email drafting, email organization, and AI-assisted email composition
 
 You can contact us by phone at +33 0781397425, email at [filippo@mobileoperator.org](mailto:filippo@mobileoperator.org), or by mail to 2261 Market St, San Francisco, CA, US, 94114, San Francisco, CA 94114, United States.
 

@@ -16,4 +16,37 @@
   .nav-link-active {
     @apply text-blue-600 font-medium;
   }
+
+  .screenshot-gallery {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 0;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .screenshot-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .screenshot-item {
+    flex: 0 0 280px;
+    scroll-snap-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .screenshot-item {
+      flex: 0 0 320px;
+    }
+  }
+
+  .screenshot-img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
 }

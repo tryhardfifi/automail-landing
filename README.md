@@ -1,6 +1,6 @@
-# PiA Website
+# Pia Website
 
-A simple, mobile-responsive static website for PiA with landing page, privacy policy, and terms & conditions.
+A simple, mobile-responsive static website for Pia with landing page, privacy policy, and terms & conditions.
 
 ## Tech Stack
 
