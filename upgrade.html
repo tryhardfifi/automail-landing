@@ -74,9 +74,9 @@
           </li>
         </ul>
 
-        <button id="subscribe-btn" onclick="startCheckout()" class="w-full mt-8 py-3 px-6 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors">
+        <a id="subscribe-btn" href="#" class="block w-full mt-8 py-3 px-6 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors">
           Subscribe
-        </button>
+        </a>
         <p class="text-xs text-gray-500 mt-3">3-day free trial &middot; Cancel anytime</p>
       </div>
 
@@ -123,6 +123,18 @@
   </footer>
 
   <script>
+    // Stripe Payment Links — no backend needed
+    const links = {
+      monthly: {
+        usd: 'https://buy.stripe.com/8x228s6237eZeKK97e0RG02',
+        eur: 'https://buy.stripe.com/dRm5kEeyzdDn6eebfm0RG03',
+      },
+      yearly: {
+        usd: 'https://buy.stripe.com/5kQ6oIeyz1UF3226Z60RG04',
+        eur: 'https://buy.stripe.com/eVqaEY4XZ2YJbyygzG0RG05',
+      },
+    };
+
     const prices = {
       monthly: { usd: '$20', eur: '€20', period: '/month', savings: false, original: null },
       yearly:  { usd: '$160', eur: '€160', period: '/year', savings: true, original: { usd: '$240', eur: '€240' } },
@@ -149,6 +161,7 @@
       document.getElementById('price-amount').textContent = p[currency];
       document.getElementById('price-period').textContent = p.period;
       document.getElementById('price-savings').classList.toggle('hidden', !p.savings);
+      document.getElementById('subscribe-btn').href = links[plan][currency];
 
       const originalEl = document.getElementById('price-original');
       if (p.original) {
@@ -169,46 +182,6 @@
       }
     }
 
-    const FUNCTION_URL = 'https://createcheckoutsession-ubmiyppvja-uc.a.run.app';
-
-    // Read uid from URL query param (passed by the iOS app)
-    const params = new URLSearchParams(window.location.search);
-    const uid = params.get('uid');
-
-    async function startCheckout() {
-      const btn = document.getElementById('subscribe-btn');
-      btn.disabled = true;
-      btn.textContent = 'Loading…';
-
-      if (!uid) {
-        alert('Please open this page from the Pia app to subscribe.');
-        btn.textContent = 'Subscribe';
-        btn.disabled = false;
-        return;
-      }
-
-      try {
-        const res = await fetch(FUNCTION_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ uid, plan: selectedPlan, currency }),
-        });
-        const data = await res.json();
-
-        if (data.checkoutUrl) {
-          window.location.href = data.checkoutUrl;
-        } else {
-          throw new Error(data.error || 'No checkout URL returned');
-        }
-      } catch (err) {
-        console.error('Checkout error:', err);
-        btn.textContent = 'Subscribe';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again.');
-      }
-    }
-
-    // Init price display
     selectPlan('monthly');
   </script>
 </body>
