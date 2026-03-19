@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're all set! — Pia</title>
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+
+  <section class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="text-center max-w-md">
+      <picture>
+        <source srcset="/icon.webp" type="image/webp">
+        <img src="/icon.png" alt="Pia" class="w-20 h-20 mx-auto mb-6" style="border-radius: 22.37%;">
+      </picture>
+
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">You're all set!</h1>
+      <p class="text-lg text-gray-600 mt-3">Welcome to Pia Pro. Your assistant is now unlimited.</p>
+
+      <a href="automail://upgrade-success" class="inline-block mt-8 py-3 px-8 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors">
+        Open Pia
+      </a>
+
+      <p class="text-sm text-gray-500 mt-4">If the app didn't open, go back to Pia on your phone.</p>
+    </div>
+  </section>
+
+  <footer class="py-6 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-gray-600">
+        <a href="/privacy.html" class="hover:text-gray-900 transition-colors">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-gray-900 transition-colors">Terms & Conditions</a>
+        <a href="/support.html" class="hover:text-gray-900 transition-colors">Support</a>
+      </div>
+      <div class="mt-4 text-sm text-gray-500">
+        <p>&copy; 2026 Pia. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-redirect to app after 2 seconds
+    setTimeout(function() {
+      window.location.href = 'automail://upgrade-success';
+    }, 2000);
+  </script>
+</body>
+</html>

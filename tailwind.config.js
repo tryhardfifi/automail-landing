@@ -4,6 +4,8 @@ export default {
     "./index.html",
     "./privacy.html",
     "./terms.html",
+    "./upgrade.html",
+    "./checkout/**/*.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upgrade to Pia Pro</title>
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="px-4 pt-10 pb-4 text-center">
+    <a href="/" class="inline-flex items-center gap-3">
+      <picture>
+        <source srcset="/icon.webp" type="image/webp">
+        <img src="/icon.png" alt="Pia" class="w-10 h-10" style="border-radius: 22.37%;">
+      </picture>
+      <span class="text-xl font-bold text-gray-900">Pia</span>
+    </a>
+  </header>
+
+  <!-- Pricing -->
+  <section class="flex-1 flex items-start justify-center px-4 py-12">
+    <div class="max-w-md w-full">
+      <div class="text-center mb-10">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Pia Pro</h1>
+        <p class="text-lg text-gray-600 mt-3">Unlimited AI messages. Your personal assistant, always on.</p>
+      </div>
+
+      <!-- Plan Toggle -->
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex bg-gray-100 rounded-full p-1">
+          <button id="btn-monthly" onclick="selectPlan('monthly')" class="px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-900 text-white">
+            Monthly
+          </button>
+          <button id="btn-yearly" onclick="selectPlan('yearly')" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-600">
+            Yearly
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="border border-gray-200 rounded-2xl p-8 text-center">
+        <div id="price-display">
+          <span id="price-original" class="text-2xl text-gray-400 line-through hidden">$240</span>
+          <span id="price-amount" class="text-5xl font-bold text-gray-900">$20</span>
+          <span id="price-period" class="text-gray-500 ml-1">/month</span>
+        </div>
+        <p id="price-savings" class="text-sm text-green-700 mt-2 hidden">Save $80/year</p>
+
+        <!-- Features -->
+        <ul class="mt-8 space-y-3 text-left text-sm text-gray-700">
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 mt-0.5">&#10003;</span>
+            Unlimited AI messages
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 mt-0.5">&#10003;</span>
+            Email drafts in your voice
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 mt-0.5">&#10003;</span>
+            Calendar &amp; Drive integration
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 mt-0.5">&#10003;</span>
+            24/7 background processing
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 mt-0.5">&#10003;</span>
+            Priority support
+          </li>
+        </ul>
+
+        <button id="subscribe-btn" onclick="startCheckout()" class="w-full mt-8 py-3 px-6 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors">
+          Subscribe
+        </button>
+        <p class="text-xs text-gray-500 mt-3">3-day free trial &middot; Cancel anytime</p>
+      </div>
+
+      <!-- Free Tier Info -->
+      <div class="mt-6 text-center text-sm text-gray-500">
+        <p>Free tier includes 2.5M tokens/month — enough to get started.</p>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mt-12 space-y-6">
+        <h2 class="text-lg font-semibold text-gray-900 text-center">Questions</h2>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-900">Can I cancel anytime?</h3>
+          <p class="text-sm text-gray-600 mt-1">Yes. Cancel from your account settings or email us. No questions asked.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-900">Is there a free trial?</h3>
+          <p class="text-sm text-gray-600 mt-1">Every subscription starts with a 3-day free trial. You won't be charged until the trial ends.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-900">What happens when I hit the free limit?</h3>
+          <p class="text-sm text-gray-600 mt-1">Pia will let you know and point you here to upgrade. Your data and settings are always safe.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-900">What payment methods do you accept?</h3>
+          <p class="text-sm text-gray-600 mt-1">All major credit and debit cards via Stripe. Apple Pay and Google Pay are also supported.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-gray-600">
+        <a href="/privacy.html" class="hover:text-gray-900 transition-colors">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-gray-900 transition-colors">Terms & Conditions</a>
+        <a href="/support.html" class="hover:text-gray-900 transition-colors">Support</a>
+      </div>
+      <div class="mt-4 text-sm text-gray-500">
+        <p>&copy; 2026 Pia. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const prices = {
+      monthly: { usd: '$20', eur: '€20', period: '/month', savings: false, original: null },
+      yearly:  { usd: '$160', eur: '€160', period: '/year', savings: true, original: { usd: '$240', eur: '€240' } },
+    };
+
+    let selectedPlan = 'monthly';
+
+    function detectCurrency() {
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        const locale = navigator.language || '';
+        if (tz.startsWith('Europe/') || locale.startsWith('de') || locale.startsWith('fr') || locale.startsWith('it') || locale.startsWith('es') || locale.startsWith('nl') || locale.startsWith('pt')) {
+          return 'eur';
+        }
+      } catch (e) {}
+      return 'usd';
+    }
+
+    const currency = detectCurrency();
+
+    function selectPlan(plan) {
+      selectedPlan = plan;
+      const p = prices[plan];
+      document.getElementById('price-amount').textContent = p[currency];
+      document.getElementById('price-period').textContent = p.period;
+      document.getElementById('price-savings').classList.toggle('hidden', !p.savings);
+
+      const originalEl = document.getElementById('price-original');
+      if (p.original) {
+        originalEl.textContent = p.original[currency];
+        originalEl.classList.remove('hidden');
+      } else {
+        originalEl.classList.add('hidden');
+      }
+
+      const btnMonthly = document.getElementById('btn-monthly');
+      const btnYearly = document.getElementById('btn-yearly');
+      if (plan === 'monthly') {
+        btnMonthly.className = 'px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-900 text-white';
+        btnYearly.className = 'px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-600';
+      } else {
+        btnYearly.className = 'px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-900 text-white';
+        btnMonthly.className = 'px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-600';
+      }
+    }
+
+    const FUNCTION_URL = 'https://createcheckoutsession-ubmiyppvja-uc.a.run.app';
+
+    // Read uid from URL query param (passed by the iOS app)
+    const params = new URLSearchParams(window.location.search);
+    const uid = params.get('uid');
+
+    async function startCheckout() {
+      const btn = document.getElementById('subscribe-btn');
+      btn.disabled = true;
+      btn.textContent = 'Loading…';
+
+      if (!uid) {
+        alert('Please open this page from the Pia app to subscribe.');
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+        return;
+      }
+
+      try {
+        const res = await fetch(FUNCTION_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ uid, plan: selectedPlan, currency }),
+        });
+        const data = await res.json();
+
+        if (data.checkoutUrl) {
+          window.location.href = data.checkoutUrl;
+        } else {
+          throw new Error(data.error || 'No checkout URL returned');
+        }
+      } catch (err) {
+        console.error('Checkout error:', err);
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    }
+
+    // Init price display
+    selectPlan('monthly');
+  </script>
+</body>
+</html>
